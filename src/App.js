@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import styled from "styled-components";
 
 import "./App.css";
 
 import NasaPhoto from './Components/NasaPhoto';
+
+//do styling after imports but before your function in global scope
+
+const Background= styled.div`
+  background-color: black;
+`
 
 function App() {
   const [data, setData] = useState();
@@ -17,9 +24,9 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <Background className="App">
      { data && <NasaPhoto photo={data} /> }
-    </div>
+    </Background>
   );
 }
 
